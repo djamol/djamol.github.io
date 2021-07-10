@@ -1,0 +1,80 @@
+.box-file {
+    margin-right: 10%;
+    width: 90%;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 6%;
+}
+
+.top-space {
+    margin-top: 2%;
+}
+
+.title-container {
+    padding: 3%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.button-add {
+    width: 100%;
+}
+
+.add-new-language {
+    text-align: center;
+    font-size: 2rem;
+    color: #007bff;
+    border-radius: 5px;
+}
+
+.plus-add-language-icon {
+    cursor: pointer;
+    margin-top: 6%;
+}
+
+.info-toast {
+    width: 267px;
+    color: #000000;
+}
+
+.toastify {
+    max-width: calc(65% - 20px) !important;
+}
+
+.toast-close {
+    float: right !important;
+    clear: both;
+    color: #ffffff;
+}
+
+.change-device-container {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+}
+
+.top-web-device {
+    width: 120px;
+    height: 160px;
+    border: 2px solid #000000;
+    border-bottom-style: none;
+    border-top-left-radius: 15px;
+}
+
+.down-mobile-device {
+    width: 120px;
+    height: 160px;
+    border: 2px solid #000000;
+    border-bottom-left-radius: 15px;
+}
+
+.icon-option-change-device {
+    font-size: 3.5rem;
+    color: #007bff;
+}
+
+.text-menu-option-change-device {
+    font-size: 0.4rem;
+    color: #007bff;
+    font-weight: bold;
+}

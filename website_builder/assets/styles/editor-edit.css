@@ -1,0 +1,31 @@
+.panel__top {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    position: initial;
+    justify-content: center;
+    justify-content: space-between;
+}
+.panel__basic-actions {
+    position: initial;
+}
+
+.gjs-devices-c > .gjs-field > #gjs-input-holder > .gjs-devices {
+    padding: 0px !important;
+}
+
+.info-toast {
+    width: 285px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.toastify {
+    max-width: calc(65% - 20px) !important;
+}
+
+.toast-close {
+    float: right !important;
+    clear: both;
+    color: #ffffff;
+}

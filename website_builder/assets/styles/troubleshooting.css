@@ -1,0 +1,17 @@
+.title-container {
+    padding: 3%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.custom-table {
+    background-color: #ffffff;
+}
+
+.long-and-truncated {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* number of lines to show */
+}

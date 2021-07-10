@@ -1,0 +1,17 @@
+.test {
+    color: red;
+}
+
+.center-dashboard {
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 11%;
+}
+
+.row-section {
+    margin-bottom: 5%;
+}
+
+.table-text {
+    font-size: 0.4rem;
+}

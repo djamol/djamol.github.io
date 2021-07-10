@@ -1,0 +1,15 @@
+.info-toast {
+    width: 285px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.toastify {
+    max-width: calc(65% - 20px) !important;
+}
+
+.toast-close {
+    float: right !important;
+    clear: both;
+    color: #ffffff;
+}

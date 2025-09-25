@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test - With Manual Trigger</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-item {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        h3 {
+            color: #007bff;
+            margin: 10px 0;
+        }
+        .debug-info {
+            background: #e7f3ff;
+            border: 1px solid #b3d4fc;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .console-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐛 Debug Test - With Manual Trigger</h1>
+    
+    <div class="debug-info">
+        <strong>🔧 Debugging Features:</strong>
+        <ul>
+            <li><strong>Console Logging:</strong> Open DevTools (F12) to see detailed detection logs</li>
+            <li><strong>Manual Trigger:</strong> If auto-formatting fails, a blue "🔍 Format JSON" button will appear in top-right</li>
+            <li><strong>Real-time Feedback:</strong> Console shows exactly what's happening during detection</li>
+        </ul>
+    </div>
+
+    <div class="console-note">
+        📊 <strong>Open Browser Console (F12)</strong> to see real-time debugging information as the extension loads and processes elements.
+    </div>
+
+    <div class="test-item">
+        <h3>Test 1: Simple JSON Object</h3>
+        <pre>{"name": "Alice", "age": 25, "city": "Paris", "active": true}</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 2: PHP print_r Array</h3>
+        <pre>Array
+(
+    [user_id] => 123
+    [username] => john_doe
+    [email] => john@example.com
+    [active] => 1
+)</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 3: PHP var_dump Output</h3>
+        <pre>array(4) {
+  ["id"]=>
+  int(456)
+  ["name"]=>
+  string(9) "Jane Smith"
+  ["email"]=>
+  string(15) "jane@example.com"
+  ["admin"]=>
+  bool(true)
+}</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 4: Array Data</h3>
+        <pre>["apple", "banana", "cherry", "date", "elderberry"]</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 5: Complex Nested Object</h3>
+        <pre>{
+  "company": {
+    "name": "Tech Corp",
+    "employees": [
+      {"id": 1, "name": "Alice", "role": "Developer"},
+      {"id": 2, "name": "Bob", "role": "Designer"}
+    ]
+  },
+  "meta": {
+    "created": "2024-01-15",
+    "version": "1.0"
+  }
+}</pre>
+    </div>
+
+    <div class="debug-info">
+        <strong>🎯 Expected Results:</strong>
+        <ol>
+            <li>Console shows "🚀 JSON Viewer Pro: Initializing..."</li>
+            <li>Console logs detection process for each &lt;pre&gt; element</li>
+            <li>Each detected JSON/PHP output gets formatted in-place with blue "JSON" indicator</li>
+            <li>If auto-formatting fails, manual "🔍 Format JSON" button appears</li>
+            <li>Click manual button to force formatting</li>
+            <li>Click any formatted JSON to copy to clipboard</li>
+        </ol>
+    </div>
+
+    <script>
+        console.log('🎯 Debug Test Page Loaded');
+        console.log('📊 Total <pre> elements found:', document.querySelectorAll('pre').length);
+        
+        // Enhanced debugging for each pre element
+        document.querySelectorAll('pre').forEach((pre, index) => {
+            const content = pre.textContent.trim();
+            console.log(`📝 Pre element ${index + 1}:`, {
+                length: content.length,
+                preview: content.substring(0, 50) + '...',
+                startsWithArray: content.startsWith('Array'),
+                startsWithBrace: content.startsWith('{'),
+                startsWithBracket: content.startsWith('['),
+                containsArrow: content.includes('=>'),
+                containsJsonStructure: content.includes('":"') || content.includes('": ')
+            });
+        });
+        
+        // Monitor for extension activity
+        let checkCount = 0;
+        const checkInterval = setInterval(() => {
+            checkCount++;
+            const formattedElements = document.querySelectorAll('.json-viewer-inline');
+            const manualTrigger = document.getElementById('json-manual-trigger');
+            
+            console.log(`🔍 Check ${checkCount}:`, {
+                formattedElements: formattedElements.length,
+                manualTriggerVisible: !!manualTrigger,
+                timestamp: new Date().toLocaleTimeString()
+            });
+            
+            if (formattedElements.length > 0 || checkCount >= 10) {
+                clearInterval(checkInterval);
+                if (formattedElements.length > 0) {
+                    console.log('✅ SUCCESS: Extension formatting detected!');
+                } else {
+                    console.log('⚠️ No automatic formatting detected after 10 seconds');
+                    console.log('🔧 Look for manual trigger button or check console errors');
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

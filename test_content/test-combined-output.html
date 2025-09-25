@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Combined Output Test - PHP var_dump + Java Arrays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-item {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #28a745;
+            margin: 15px 0;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        .console-note {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .output-content {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Combined Output Test</h1>
+        <p>Testing PHP var_dump and Java array output detection and conversion</p>
+    </div>
+
+    <div class="console-note">
+        <strong>📋 TESTING MULTIPLE OUTPUT FORMATS:</strong>
+        <p>This test checks detection and conversion of:</p>
+        <ul>
+            <li><strong>PHP var_dump</strong> - Both single-line (browser-collapsed) and multi-line formats</li>
+            <li><strong>Java Array References</strong> - toString() output with memory addresses</li>
+            <li><strong>Java Array Content</strong> - Actual array values</li>
+        </ul>
+        <p><strong>Open Console (F12)</strong> to see the detailed parsing process.</p>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 1: PHP var_dump Output (Single Line - as seen in browser)</h3>
+        <div class="output-content">
+array(4) { ["id"]=> int(44456) ["name"]=> string(21) "Janeadsfdsadfs Smith" ["email"]=> string(19) "jadddne@example.com" ["admin"]=> bool(true) }
+        </div>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 2: Java Array References</h3>
+        <div class="output-content">
+[[Ljava.lang.String;@659e0bfd, [Ljava.lang.String;@2a139a55]
+        </div>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 3: Java Array Content</h3>
+        <div class="output-content">
+[[John, Mary], [Alice, Bob]]
+        </div>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 4: Combined Java Output</h3>
+        <div class="output-content">
+[[Ljava.lang.String;@659e0bfd, [Ljava.lang.String;@2a139a55]
+[[John, Mary], [Alice, Bob]]
+        </div>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 5: PHP var_dump (Multi-line format)</h3>
+        <div class="output-content" style="white-space: pre-wrap;">array(3) {
+  ["user_id"]=>
+  int(123)
+  ["username"]=>
+  string(8) "testuser"
+  ["active"]=>
+  bool(true)
+}</div>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 6: Simple Java Array</h3>
+        <div class="output-content">
+[apple, banana, orange, grape]
+        </div>
+    </div>
+<div> java test print array/collection
+    Try programiz.pro
+[[Ljava.lang.String;@659e0bfd, [Ljava.lang.String;@2a139a55]
+[[John, Mary], [Alice, Bob]]
+
+</div>
+    <script>
+        console.log('🎯 Combined Output Test Page Loaded');
+        
+        // Monitor for detection results
+        let checkCount = 0;
+        const detectionInterval = setInterval(() => {
+            checkCount++;
+            
+            const jsonViewers = document.querySelectorAll('.json-element-wrapper');
+            
+            console.log(`🔍 Detection Check ${checkCount}:`, {
+                jsonViewers: jsonViewers.length,
+                timestamp: new Date().toLocaleTimeString()
+            });
+            
+            if (jsonViewers.length > 0 || checkCount >= 20) {
+                clearInterval(detectionInterval);
+                
+                if (jsonViewers.length > 0) {
+                    console.log('🎉 SUCCESS: Output detection working!');
+                    console.log(`📊 Successfully detected and parsed ${jsonViewers.length} output elements`);
+                    
+                    // Log what each viewer contains
+                    jsonViewers.forEach((viewer, index) => {
+                        const content = viewer.textContent;
+                        console.log(`📝 Viewer ${index + 1} detected:`, {
+                            hasPhpData: content.includes('"id"') || content.includes('"name"'),
+                            hasJavaArray: content.includes('array_references') || content.includes('array_content'),
+                            hasFlattened: content.includes('flattened'),
+                            isJavaOutput: content.includes('java_array_output'),
+                            contentPreview: content.substring(0, 100) + '...'
+                        });
+                    });
+                } else {
+                    console.log('❌ No output elements detected');
+                    console.log('🔧 Check console logs for detection details');
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

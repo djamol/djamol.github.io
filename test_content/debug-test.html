@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test - Multiple PHP Outputs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-item {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        h3 {
+            color: #007bff;
+            margin: 10px 0;
+        }
+        .status {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐛 Debug Test - Multiple PHP Outputs</h1>
+    
+    <div class="status">
+        <strong>Instructions:</strong> Open browser DevTools (F12) to see console logs. Each PHP output below should be automatically detected and formatted by the JSON Viewer Pro extension.
+    </div>
+
+    <div class="test-item">
+        <h3>Test 1: Simple print_r Array</h3>
+        <pre>Array
+(
+    [name] => John Doe
+    [age] => 90
+    [city] => New York
+)</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 2: var_dump Output</h3>
+        <pre>array(3) {
+  ["id"]=>
+  int(123)
+  ["name"]=>
+  string(8) "John Doe"
+  ["active"]=>
+  bool(true)
+}</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 3: Regular JSON</h3>
+        <pre>{"message": "This is regular JSON", "status": "test", "count": 42}</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 4: Complex print_r with Nesting</h3>
+        <pre>Array
+(
+    [user] => Array
+        (
+            [id] => 456
+            [profile] => Array
+                (
+                    [name] => Jane Smith
+                    [email] => jane@example.com
+                )
+        )
+    [settings] => Array
+        (
+            [theme] => dark
+            [notifications] => 1
+        )
+)</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 5: PHP Code Pattern</h3>
+        <pre><?php echo json_encode($data); ?></pre>
+        <pre>{"result": "success", "data": ["item1", "item2", "item3"]}</pre>
+    </div>
+
+    <script>
+        console.log('🚀 Debug Test Page Loaded');
+        console.log('📊 Total <pre> elements:', document.querySelectorAll('pre').length);
+        
+        // Log each pre element for debugging
+        document.querySelectorAll('pre').forEach((pre, index) => {
+            console.log(`📝 Pre element ${index + 1}:`, pre.textContent.trim().substring(0, 50) + '...');
+        });
+        
+        // Check if extension is running
+        setTimeout(() => {
+            const hasFormattedElements = document.querySelectorAll('[style*="JSON Viewer Pro"]').length > 0;
+            if (hasFormattedElements) {
+                console.log('✅ Extension detected and formatting applied!');
+            } else {
+                console.log('❌ Extension not detected or formatting not applied');
+                console.log('🔍 Check if JSON Viewer Pro extension is enabled');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

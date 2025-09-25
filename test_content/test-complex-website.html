@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Website with JSON - Similar to JSONFormatter.org</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        
+        /* Header */
+        .header { background: #2c3e50; color: white; padding: 1rem; }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .nav h1 { font-size: 1.8rem; }
+        .nav ul { display: flex; list-style: none; gap: 2rem; }
+        .nav a { color: white; text-decoration: none; }
+        
+        /* Main content */
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .hero { background: linear-gradient(135deg, #3498db, #2c3e50); color: white; padding: 3rem; text-align: center; margin: 2rem 0; border-radius: 8px; }
+        
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .feature { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3498db; }
+        
+        /* JSON Example sections */
+        .json-example { background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+        .json-example h3 { color: #2c3e50; margin-bottom: 1rem; }
+        .json-example pre { background: #2c3e50; color: #ecf0f1; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+        
+        /* Footer */
+        .footer { background: #34495e; color: white; padding: 2rem; text-align: center; margin-top: 3rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+        .footer-links a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <h1>🔧 JSON Tools Pro</h1>
+            <ul>
+                <li><a href="#formatter">JSON Formatter</a></li>
+                <li><a href="#validator">JSON Validator</a></li>
+                <li><a href="#beautifier">Beautifier</a></li>
+                <li><a href="#converter">Converter</a></li>
+                <li><a href="#docs">Documentation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Professional JSON Formatter & Validator</h1>
+            <p>Format, validate, and beautify your JSON data with our powerful online tools</p>
+            <button style="background: #e74c3c; color: white; border: none; padding: 12px 24px; border-radius: 4px; font-size: 16px; margin-top: 1rem; cursor: pointer;">Try It Now</button>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="feature">
+                <h3>🎨 JSON Beautifier</h3>
+                <p>Format your JSON with proper indentation and syntax highlighting for better readability.</p>
+            </div>
+            <div class="feature">
+                <h3>✅ JSON Validator</h3>
+                <p>Validate JSON syntax and find errors with detailed error messages and line numbers.</p>
+            </div>
+            <div class="feature">
+                <h3>🔄 JSON Converter</h3>
+                <p>Convert JSON to XML, CSV, YAML and other formats seamlessly.</p>
+            </div>
+        </section>
+
+        <!-- JSON Examples -->
+        <section id="examples">
+            <h2 style="color: #2c3e50; margin: 2rem 0;">JSON Examples</h2>
+            
+            <div class="json-example">
+                <h3>User Profile Example</h3>
+                <p>A typical user profile object structure:</p>
+                <pre>{
+  "user": {
+    "id": 12345,
+    "username": "johndoe",
+    "email": "john.doe@example.com",
+    "profile": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 30,
+      "location": {
+        "city": "New York",
+        "country": "USA",
+        "coordinates": {
+          "lat": 40.7128,
+          "lng": -74.0060
+        }
+      },
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US"
+      }
+    },
+    "roles": ["user", "premium"],
+    "lastLogin": "2023-12-01T10:30:00Z",
+    "isActive": true
+  }
+}</pre>
+            </div>
+
+            <div class="json-example">
+                <h3>E-commerce Product Data</h3>
+                <p>Product catalog structure with nested attributes:</p>
+                <pre>{
+  "products": [
+    {
+      "id": "PROD-001",
+      "name": "Premium Wireless Headphones",
+      "description": "High-quality noise-canceling headphones",
+      "price": {
+        "amount": 299.99,
+        "currency": "USD",
+        "discounted": false
+      },
+      "category": {
+        "id": "electronics",
+        "name": "Electronics",
+        "subcategory": "Audio"
+      },
+      "specifications": {
+        "wireless": true,
+        "noiseCanceling": true,
+        "batteryLife": "30 hours",
+        "color": ["black", "white", "blue"],
+        "weight": "250g"
+      },
+      "availability": {
+        "inStock": true,
+        "quantity": 150,
+        "warehouse": "WH-NY-001"
+      },
+      "ratings": {
+        "average": 4.5,
+        "count": 1250,
+        "distribution": {
+          "5": 680,
+          "4": 420,
+          "3": 100,
+          "2": 30,
+          "1": 20
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "totalProducts": 1,
+    "page": 1,
+    "hasMore": false,
+    "lastUpdated": "2023-12-01T15:30:00Z"
+  }
+}</pre>
+            </div>
+
+            <div class="json-example">
+                <h3>API Response Example</h3>
+                <p>Standard API response with error handling:</p>
+                <code style="display: block; background: #2c3e50; color: #ecf0f1; padding: 1rem; border-radius: 4px; white-space: pre-wrap;">{
+  "success": true,
+  "data": {
+    "users": [
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "status": "active"
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "email": "bob@example.com",
+        "status": "pending"
+      }
+    ]
+  },
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 5,
+    "totalItems": 100,
+    "itemsPerPage": 20
+  },
+  "error": null,
+  "timestamp": "2023-12-01T16:45:00Z"
+}</code>
+            </div>
+        </section>
+
+        <!-- Additional Content -->
+        <section style="margin: 3rem 0;">
+            <h2 style="color: #2c3e50;">Why Choose Our JSON Tools?</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <h4>🚀 Fast & Reliable</h4>
+                    <p>Lightning-fast processing with 99.9% uptime guarantee.</p>
+                </div>
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <h4>🔒 Secure & Private</h4>
+                    <p>Your data is processed locally and never stored on our servers.</p>
+                </div>
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <h4>📱 Cross-Platform</h4>
+                    <p>Works seamlessly on desktop, tablet, and mobile devices.</p>
+                </div>
+                <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                    <h4>🎯 Developer-Friendly</h4>
+                    <p>Built by developers, for developers with advanced features.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact</a>
+            <a href="#api">API</a>
+        </div>
+        <p>&copy; 2023 JSON Tools Pro. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Place JSON Formatting Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        h2 {
+            color: #007bff;
+            margin: 15px 0 10px 0;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .content-between {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 15px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 In-Place JSON Formatting Test</h1>
+    
+    <div class="info">
+        <strong>Expected Behavior:</strong> Each JSON/PHP output below should be formatted individually <strong>in its original place</strong>. The page structure, headings, and content between sections should remain unchanged. Each formatted element should have a small "JSON" indicator.
+    </div>
+
+    <div class="section">
+        <h2>🔥 Test Section 1</h2>
+        <p>This is regular content that should stay unchanged.</p>
+        
+        <h3>Simple JSON Object:</h3>
+        <pre>{"name": "Alice", "age": 25, "city": "Paris", "active": true}</pre>
+        
+        <p>This text should remain between the JSON outputs.</p>
+        
+        <h3>Array Data:</h3>
+        <pre>["apple", "banana", "cherry", "date", "elderberry"]</pre>
+    </div>
+
+    <div class="content-between">
+        <strong>📍 This content should remain exactly as is!</strong><br>
+        This tests that the page structure is preserved.
+    </div>
+
+    <div class="section">
+        <h2>🧪 Test Section 2</h2>
+        <p>Another section with multiple outputs...</p>
+        
+        <h3>PHP print_r Output:</h3>
+        <pre>Array
+(
+    [user_id] => 123
+    [username] => john_doe
+    [profile] => Array
+        (
+            [first_name] => John
+            [last_name] => Doe
+            [email] => john@example.com
+        )
+    [settings] => Array
+        (
+            [theme] => dark
+            [language] => en
+            [notifications] => 1
+        )
+)</pre>
+        
+        <div class="content-between">
+            <em>📝 Content between PHP outputs</em>
+        </div>
+        
+        <h3>PHP var_dump Output:</h3>
+        <pre>array(4) {
+  ["id"]=>
+  int(456)
+  ["name"]=>
+  string(9) "Jane Smith"
+  ["email"]=>
+  string(15) "jane@example.com"
+  ["admin"]=>
+  bool(true)
+}</pre>
+    </div>
+
+    <div class="content-between">
+        <strong>🎨 More preserved content!</strong><br>
+        Each JSON section above should be formatted individually.
+    </div>
+
+    <div class="section">
+        <h2>🎯 Test Section 3</h2>
+        <p>Final section with complex data...</p>
+        
+        <h3>Complex Nested JSON:</h3>
+        <pre>{
+  "company": {
+    "name": "Tech Corp",
+    "employees": [
+      {"id": 1, "name": "Alice", "role": "Developer"},
+      {"id": 2, "name": "Bob", "role": "Designer"}
+    ],
+    "locations": {
+      "headquarters": "New York",
+      "branches": ["London", "Tokyo", "Sydney"]
+    }
+  },
+  "meta": {
+    "created": "2024-01-15",
+    "version": "1.0"
+  }
+}</pre>
+        
+        <p>Final paragraph that should remain unchanged.</p>
+    </div>
+
+    <div class="info">
+        <strong>✅ Success Criteria:</strong>
+        <ul>
+            <li>Each JSON/PHP output should be formatted with proper indentation</li>
+            <li>Each formatted element should have a blue "JSON" indicator in top-right</li>
+            <li>All headings, paragraphs, and sections should remain exactly as they were</li>
+            <li>Yellow content-between sections should be unchanged</li>
+            <li>Page structure and styling should be preserved</li>
+            <li>Click any formatted JSON to copy it to clipboard</li>
+        </ul>
+    </div>
+
+    <script>
+        console.log('🎯 In-Place Test Page Loaded');
+        console.log('📊 Total <pre> elements found:', document.querySelectorAll('pre').length);
+        
+        // Monitor for formatting changes
+        setTimeout(() => {
+            const formattedElements = document.querySelectorAll('.json-viewer-inline');
+            const indicators = document.querySelectorAll('[style*="JSON"]');
+            
+            console.log('🔍 Formatted elements found:', formattedElements.length);
+            console.log('🏷️ JSON indicators found:', indicators.length);
+            
+            if (formattedElements.length > 0) {
+                console.log('✅ SUCCESS: In-place formatting detected!');
+            } else {
+                console.log('❌ ISSUE: No in-place formatting detected');
+                console.log('🔧 Check if JSON Viewer Pro extension is enabled');
+            }
+            
+            // Check if page structure is preserved
+            const sections = document.querySelectorAll('.section');
+            const contentBetween = document.querySelectorAll('.content-between');
+            
+            console.log('📐 Page structure check:');
+            console.log('  - Sections preserved:', sections.length === 3);
+            console.log('  - Content-between preserved:', contentBetween.length === 3);
+            
+        }, 2000);
+    </script>
+</body>
+</html>

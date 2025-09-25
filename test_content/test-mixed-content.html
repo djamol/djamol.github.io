@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Mixed Content Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #333; }
+        .json-container { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>API Documentation</h1>
+    <p>This page contains multiple JSON examples for our API endpoints.</p>
+    
+    <h2>User Data Endpoint</h2>
+    <p>Returns user information in the following format:</p>
+    <div class="json-container">
+        <pre>
+{
+  "user": {
+    "id": 123,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "active": true,
+    "roles": ["user", "admin"],
+    "lastLogin": "2023-12-01T10:30:00Z"
+  }
+}
+        </pre>
+    </div>
+    
+    <h2>Product Catalog Endpoint</h2>
+    <p>Returns product information:</p>
+    <div class="json-container">
+        <pre>
+{
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Laptop Computer",
+      "price": 999.99,
+      "category": "Electronics",
+      "inStock": true,
+      "specifications": {
+        "processor": "Intel i7",
+        "memory": "16GB",
+        "storage": "512GB SSD"
+      }
+    },
+    {
+      "id": "prod-002",
+      "name": "Wireless Mouse",
+      "price": 29.99,
+      "category": "Accessories",
+      "inStock": false,
+      "specifications": {
+        "connectivity": "Bluetooth",
+        "batteryLife": "6 months"
+      }
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "totalPages": 5,
+    "totalItems": 47
+  }
+}
+        </pre>
+    </div>
+    
+    <h2>Error Response Format</h2>
+    <p>When errors occur, the API returns:</p>
+    <div class="json-container">
+        <code>
+{
+  "error": {
+    "code": 404,
+    "message": "Resource not found",
+    "details": "The requested user ID does not exist",
+    "timestamp": "2023-12-01T10:30:00Z"
+  }
+}
+        </code>
+    </div>
+    
+    <p>For more information, please refer to our complete API documentation.</p>
+</body>
+</html>

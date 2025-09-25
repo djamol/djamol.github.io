@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Auto-Format Disabled Notification</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5;
+        }
+        .instructions {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .instructions h2 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        .instructions ol {
+            margin: 15px 0;
+        }
+        .instructions li {
+            margin: 8px 0;
+        }
+        .json-container { 
+            margin: 20px 0; 
+            padding: 15px; 
+            background: #fff; 
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .json-container h3 { 
+            color: #333; 
+            margin-bottom: 1rem; 
+        }
+        .json-container pre { 
+            background: #f8f9fa; 
+            color: #333; 
+            padding: 15px; 
+            border-radius: 4px; 
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>🧪 Testing Auto-Format Disabled Notification</h2>
+        <p><strong>Follow these steps to test the new notification feature:</strong></p>
+        <ol>
+            <li>🔧 <strong>Disable Auto-Format:</strong> Click the JSON Viewer Pro extension icon and turn OFF "Auto Format"</li>
+            <li>🔄 <strong>Refresh this page</strong> after disabling auto-format</li>
+            <li>👁️ <strong>Watch for the notification:</strong> You should see an animated notification on the bottom-left</li>
+            <li>⏰ <strong>Wait 20 seconds:</strong> The notification will auto-hide and show a small 30x30 icon</li>
+            <li>🖱️ <strong>Click the icon:</strong> The notification should reappear</li>
+            <li>✨ <strong>Click "Format":</strong> The JSON should be formatted in-place</li>
+        </ol>
+        <div class="highlight">
+            <strong>Expected Behavior:</strong> If auto-format is OFF and JSON is found, you'll see "JSON Data Found! X elements detected" with a "Click to Format" button.
+        </div>
+    </div>
+
+    <h1>API Documentation with Multiple JSON Examples</h1>
+    <p>This page contains several JSON code blocks that should trigger the notification when auto-format is disabled.</p>
+    
+    <div class="json-container">
+        <h3>User Authentication Response</h3>
+        <p>Successful login response:</p>
+        <pre>{
+  "success": true,
+  "user": {
+    "id": 12345,
+    "username": "johndoe",
+    "email": "john.doe@example.com",
+    "profile": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "avatar": "https://example.com/avatars/johndoe.jpg",
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US",
+        "timezone": "America/New_York"
+      }
+    },
+    "roles": ["user", "premium"],
+    "permissions": ["read", "write", "comment"],
+    "lastLogin": "2023-12-01T10:30:00Z",
+    "isActive": true
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "expiresIn": 3600,
+  "refreshToken": "rt_1234567890abcdef"
+}</pre>
+    </div>
+    
+    <div class="json-container">
+        <h3>Product Catalog API</h3>
+        <p>Product listing with pagination:</p>
+        <pre>{
+  "products": [
+    {
+      "id": "PROD-001",
+      "name": "Premium Wireless Headphones",
+      "description": "High-quality noise-canceling headphones with premium sound",
+      "price": {
+        "amount": 299.99,
+        "currency": "USD",
+        "discounted": true,
+        "originalAmount": 399.99
+      },
+      "category": {
+        "id": "electronics",
+        "name": "Electronics",
+        "subcategory": "Audio Equipment"
+      },
+      "specifications": {
+        "wireless": true,
+        "noiseCanceling": true,
+        "batteryLife": "30 hours",
+        "connectivity": ["Bluetooth 5.0", "USB-C", "3.5mm jack"],
+        "colors": ["black", "white", "blue", "red"],
+        "weight": "250g",
+        "warranty": "2 years"
+      },
+      "availability": {
+        "inStock": true,
+        "quantity": 150,
+        "warehouse": "WH-NY-001",
+        "estimatedDelivery": "2-3 business days"
+      },
+      "ratings": {
+        "average": 4.7,
+        "count": 2847,
+        "distribution": {
+          "5": 1892,
+          "4": 654,
+          "3": 201,
+          "2": 67,
+          "1": 33
+        }
+      },
+      "images": [
+        "https://example.com/products/prod-001/main.jpg",
+        "https://example.com/products/prod-001/side.jpg",
+        "https://example.com/products/prod-001/back.jpg"
+      ]
+    },
+    {
+      "id": "PROD-002",
+      "name": "Smart Fitness Tracker",
+      "description": "Advanced fitness tracking with heart rate monitoring",
+      "price": {
+        "amount": 129.99,
+        "currency": "USD",
+        "discounted": false
+      },
+      "category": {
+        "id": "wearables",
+        "name": "Wearable Technology",
+        "subcategory": "Fitness Trackers"
+      },
+      "specifications": {
+        "waterproof": "IP68",
+        "batteryLife": "7 days",
+        "display": "1.4 inch AMOLED",
+        "sensors": ["heart rate", "accelerometer", "gyroscope", "GPS"],
+        "compatibility": ["iOS", "Android"],
+        "colors": ["black", "blue", "pink"]
+      },
+      "availability": {
+        "inStock": true,
+        "quantity": 89,
+        "warehouse": "WH-CA-002",
+        "estimatedDelivery": "1-2 business days"
+      },
+      "ratings": {
+        "average": 4.3,
+        "count": 1567,
+        "distribution": {
+          "5": 892,
+          "4": 445,
+          "3": 156,
+          "2": 52,
+          "1": 22
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 12,
+    "totalItems": 347,
+    "itemsPerPage": 20,
+    "hasNext": true,
+    "hasPrevious": false
+  },
+  "filters": {
+    "category": "electronics",
+    "priceRange": {
+      "min": 0,
+      "max": 1000
+    },
+    "inStockOnly": true,
+    "sortBy": "popularity"
+  },
+  "metadata": {
+    "requestId": "req_abc123def456",
+    "timestamp": "2023-12-01T15:45:30Z",
+    "processingTime": "45ms",
+    "source": "product-service-v2"
+  }
+}</pre>
+    </div>
+
+    <div class="json-container">
+        <h3>Error Response Format</h3>
+        <p>Standard error response structure:</p>
+        <code style="display: block; background: #f8f9fa; padding: 15px; border-radius: 4px; white-space: pre-wrap; border: 1px solid #e9ecef;">{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid input parameters provided",
+    "details": [
+      {
+        "field": "email",
+        "message": "Invalid email format",
+        "code": "INVALID_EMAIL"
+      },
+      {
+        "field": "password",
+        "message": "Password must be at least 8 characters",
+        "code": "PASSWORD_TOO_SHORT"
+      }
+    ],
+    "timestamp": "2023-12-01T16:45:00Z",
+    "requestId": "req_error_789xyz",
+    "documentation": "https://api.example.com/docs/errors"
+  },
+  "metadata": {
+    "version": "v1.2.3",
+    "environment": "production"
+  }
+}</code>
+    </div>
+
+    <p style="margin-top: 40px; color: #666; font-size: 14px;">
+        <strong>Note:</strong> This page contains 3 JSON blocks in different formats (pre, code) to test the notification system.
+        The notification should show "3 elements detected" when auto-format is disabled.
+    </p>
+</body>
+</html>

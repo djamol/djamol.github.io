@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple PHP Test - JSON Viewer Pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-box {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Simple PHP Test for JSON Viewer Pro</h1>
+    <p><strong>Status:</strong> Load this page with the JSON Viewer Pro extension to test automatic PHP output detection and formatting.</p>
+
+    <div class="test-box">
+        <h2>Test 1: PHP print_r() Output</h2>
+        <pre>Array
+(
+    [name] => John Doe
+    [age] => 30
+    [email] => john@example.com
+    [active] => 1
+)</pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 2: PHP var_dump() Output</h2>
+        <pre>array(3) {
+  ["name"]=>
+  string(8) "John Doe"
+  ["age"]=>
+  int(30)
+  ["active"]=>
+  bool(true)
+}</pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 3: PHP echo json_encode()</h2>
+        <pre><?php echo json_encode($data); ?></pre>
+        <pre>{"name": "Jane Smith", "role": "developer", "skills": ["PHP", "JavaScript", "Python"]}</pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 4: Regular JSON (for comparison)</h2>
+        <pre>{"status": "success", "message": "This should also be formatted", "timestamp": "2024-01-20T10:30:00Z"}</pre>
+    </div>
+
+    <script>
+        console.log('Simple PHP test page loaded');
+        console.log('Extension should automatically detect and format all PHP outputs above');
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JSON for Chrome Extension</title>
+</head>
+<body>
+<pre>
+{
+  "level1_string": "root level data",
+  "level1_number": 42,
+  "level1_boolean": true,
+  "level1_object": {
+    "level2_string": "nested in level1_object",
+    "level2_array": [
+      "array_item_1",
+      "array_item_2",
+      {
+        "level3_in_array": "nested object in array",
+        "level3_nested": {
+          "level4_deep": "very deep nesting",
+          "level4_array": [
+            {
+              "level5_item": "super deep",
+              "level5_final": {
+                "deepest": "final level"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "level2_object": {
+      "level3_data": "nested in level2_object",
+      "level3_more": {
+        "level4_data": "even deeper"
+      }
+    }
+  },
+  "level1_array": [
+    {
+      "array_object_1": {
+        "nested_in_array": "test data",
+        "nested_array": [1, 2, 3, {"nested_in_nested_array": true}]
+      }
+    },
+    {
+      "array_object_2": {
+        "more_nesting": {
+          "deep_object": {
+            "very_deep": "should have toggle button"
+          }
+        }
+      }
+    }
+  ],
+  "level1_simple_array": ["a", "b", "c"],
+  "level1_final_object": {
+    "test_all_buttons": "Every object and array should have toggle buttons",
+    "small_object": {"key": "value"},
+    "small_array": ["single"],
+    "empty_object": {},
+    "empty_array": []
+  }
+}
+</pre>
+</body>
+</html>

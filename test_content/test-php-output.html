@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Output Test Page - JSON Viewer Pro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        .php-code {
+            background: #fffbf0;
+            border-left: 4px solid #ff6b35;
+        }
+        .description {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 PHP Output Test Page for JSON Viewer Pro</h1>
+    <p><strong>Instructions:</strong> This page contains various PHP output formats that the JSON Viewer Pro extension should detect and convert to JSON. Install the extension and visit this page to test the functionality.</p>
+
+    <div class="test-section">
+        <h2>1. PHP echo json_encode() Code Pattern</h2>
+        <div class="description">PHP code that echoes JSON data (should be detected even without actual output)</div>
+        <pre class="php-code"><?php echo json_encode($data); ?></pre>
+        
+        <h3>With Actual JSON Output:</h3>
+        <div class="description">PHP code followed by actual JSON output</div>
+        <pre class="php-code"><?php echo json_encode($user_data); ?></pre>
+        <pre>{"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "roles": ["user", "admin"]}</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>2. PHP print_r() Output</h2>
+        <div class="description">Typical print_r output that should be converted to JSON</div>
+        <pre>Array
+(
+    [id] => 123
+    [name] => John Doe
+    [email] => john@example.com
+    [active] => 1
+    [profile] => Array
+        (
+            [age] => 30
+            [city] => New York
+            [country] => USA
+        )
+    [hobbies] => Array
+        (
+            [0] => reading
+            [1] => coding
+            [2] => gaming
+        )
+)</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>3. PHP var_dump() Output</h2>
+        <div class="description">Typical var_dump output that should be converted to JSON</div>
+        <pre>array(5) {
+  ["id"]=>
+  int(123)
+  ["name"]=>
+  string(8) "John Doe"
+  ["email"]=>
+  string(16) "john@example.com"
+  ["active"]=>
+  bool(true)
+  ["balance"]=>
+  float(1234.56)
+}</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Complex print_r() Output</h2>
+        <div class="description">More complex nested array structure from print_r</div>
+        <pre>Array
+(
+    [user] => Array
+        (
+            [id] => 456
+            [profile] => Array
+                (
+                    [firstName] => Jane
+                    [lastName] => Smith
+                    [preferences] => Array
+                        (
+                            [theme] => dark
+                            [notifications] => 1
+                            [language] => en
+                        )
+                )
+        )
+    [posts] => Array
+        (
+            [0] => Array
+                (
+                    [title] => Hello World
+                    [content] => This is my first post
+                    [published] => 1
+                )
+            [1] => Array
+                (
+                    [title] => PHP Tips
+                    [content] => Some useful PHP tips
+                    [published] => 1
+                )
+        )
+)</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>5. Mixed PHP Code Patterns</h2>
+        <div class="description">Various PHP code patterns that should be detected</div>
+        
+        <h3>Standard format:</h3>
+        <pre class="php-code"><?php echo json_encode($response); ?></pre>
+        
+        <h3>With extra whitespace:</h3>
+        <pre class="php-code"><?php  echo  json_encode( $data )  ; ?></pre>
+        
+        <h3>Short tags:</h3>
+        <pre class="php-code"><?= json_encode($items) ?></pre>
+        
+        <h3>No semicolon:</h3>
+        <pre class="php-code"><?php echo json_encode($result) ?></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>6. Simple var_dump() Output</h2>
+        <div class="description">Simple variable types in var_dump format</div>
+        <pre>string(12) "Hello, World"
+int(42)
+float(3.14159)
+bool(true)
+bool(false)
+NULL</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>7. Test Instructions</h2>
+        <div class="description">
+            <strong>Expected Behavior:</strong>
+            <ul>
+                <li>📱 Extension icon should show JSON detected</li>
+                <li>🎨 PHP output should be automatically formatted as JSON</li>
+                <li>🔄 Click extension icon to access formatting controls</li>
+                <li>📋 Copy functionality should work with converted JSON</li>
+                <li>🌙 Dark/light theme should apply to converted content</li>
+                <li>📊 Stats should show object/array counts for converted data</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Add some dynamic content for testing
+        console.log('PHP Output Test Page loaded');
+        console.log('Test the JSON Viewer Pro extension with the content above');
+    </script>
+</body>
+</html>

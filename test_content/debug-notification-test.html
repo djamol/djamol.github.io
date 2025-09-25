@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Notification Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f0f8ff;
+        }
+        .debug-panel {
+            background: #fffacd;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .debug-panel h2 {
+            color: #b8860b;
+            margin-top: 0;
+        }
+        .step {
+            background: #e6f3ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .json-test { 
+            margin: 20px 0; 
+            padding: 15px; 
+            background: #fff; 
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .json-test h3 { 
+            color: #333; 
+            margin-bottom: 1rem; 
+        }
+        .json-test pre { 
+            background: #f8f9fa; 
+            color: #333; 
+            padding: 15px; 
+            border-radius: 4px; 
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+        }
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .console-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-panel">
+        <h2>🐛 Debug Notification Test Page</h2>
+        <p><strong>This page will help us debug why the notification isn't showing when auto-format is disabled.</strong></p>
+        
+        <div class="step">
+            <h3>Step 1: Open Browser Console</h3>
+            <p>Press <strong>F12</strong> and go to the <strong>Console</strong> tab to see debug messages.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: Disable Auto-Format</h3>
+            <p>Click the JSON Viewer Pro extension icon and turn <strong>OFF</strong> the "Auto Format" setting.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: Refresh This Page</h3>
+            <p>After disabling auto-format, refresh this page (Ctrl+F5) and watch the console.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 4: Check Console Messages</h3>
+            <p>Look for these specific debug messages in the console:</p>
+            <ul>
+                <li>🔍 <strong>"Auto-format Debug:"</strong> - Shows if auto-format is enabled/disabled</li>
+                <li>✅ <strong>"JSON elements detected and stored"</strong> - Shows if JSON was found</li>
+                <li>⏸️ <strong>"Auto-format is DISABLED"</strong> - Confirms auto-format is off</li>
+                <li>🔔 <strong>"Auto-format disabled but X JSON elements found"</strong> - Should trigger notification</li>
+                <li>🎨 <strong>"showJsonFoundNotification called"</strong> - Confirms notification function runs</li>
+            </ul>
+        </div>
+        
+        <div class="console-info">
+            <h4>📋 Please Copy & Share These Console Messages:</h4>
+            <p>After refreshing with auto-format disabled, please copy the console output and share it so we can identify the issue.</p>
+        </div>
+    </div>
+
+    <h1>Simple JSON Test Content</h1>
+    <p>This page contains basic JSON that should be detected by the extension.</p>
+    
+    <div class="json-test">
+        <h3>Test JSON Block 1</h3>
+        <pre>{
+  "name": "Debug Test",
+  "version": "1.0.0",
+  "description": "Simple JSON for testing notification",
+  "status": "testing",
+  "elements": [
+    {"id": 1, "type": "test", "active": true},
+    {"id": 2, "type": "debug", "active": false}
+  ]
+}</pre>
+    </div>
+    
+    <div class="json-test">
+        <h3>Test JSON Block 2</h3>
+        <code style="display: block; background: #f8f9fa; padding: 15px; border-radius: 4px; white-space: pre-wrap; border: 1px solid #e9ecef;">{
+  "notification": {
+    "should": "appear",
+    "when": "auto-format disabled",
+    "location": "bottom-left",
+    "duration": "20 seconds"
+  },
+  "debug": {
+    "enabled": true,
+    "level": "verbose"
+  }
+}</code>
+    </div>
+
+    <div class="highlight">
+        <h4>🎯 Expected Behavior:</h4>
+        <p><strong>If auto-format is OFF:</strong> You should see an animated notification in the bottom-left saying "JSON Data Found! 2 elements detected" with a "Click to Format" button.</p>
+        <p><strong>If auto-format is ON:</strong> The JSON should be automatically formatted in-place without showing the notification.</p>
+    </div>
+
+    <div class="console-info">
+        <h4>🔧 Troubleshooting Checklist:</h4>
+        <ol>
+            <li>Extension is loaded and active</li>
+            <li>Auto-format setting is actually OFF (check extension popup)</li>
+            <li>Page was refreshed after changing the setting</li>
+            <li>Browser console shows the debug messages</li>
+            <li>No JavaScript errors in console</li>
+        </ol>
+    </div>
+</body>
+</html>

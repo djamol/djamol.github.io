@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Single JSON Page</title>
+</head>
+<body>
+<pre>
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "profile": {
+        "age": 30,
+        "city": "New York",
+        "preferences": {
+          "notifications": true,
+          "theme": "dark",
+          "language": "en"
+        }
+      },
+      "posts": [
+        {
+          "id": 101,
+          "title": "Hello World",
+          "content": "This is my first post",
+          "tags": ["intro", "hello", "first"]
+        },
+        {
+          "id": 102,
+          "title": "JSON is Awesome",
+          "content": "Learning about JSON formatting",
+          "tags": ["json", "tutorial", "data"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "profile": {
+        "age": 28,
+        "city": "Los Angeles",
+        "preferences": {
+          "notifications": false,
+          "theme": "light",
+          "language": "en"
+        }
+      },
+      "posts": []
+    }
+  ],
+  "meta": {
+    "total": 2,
+    "page": 1,
+    "hasNext": false
+  }
+}
+</pre>
+</body>
+</html>

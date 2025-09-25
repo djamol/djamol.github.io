@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Multi-line var_dump Test - Test 3 Format</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-item {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+        h3 {
+            color: #28a745;
+            margin: 15px 0;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        .console-note {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success-note {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Multi-line var_dump Fix Test</h1>
+        <p>Testing the fix for Test 3: PHP var_dump Output format</p>
+    </div>
+
+    <div class="console-note">
+        <strong>📋 TESTING MULTI-LINE var_dump FORMAT:</strong>
+        <p>This test specifically addresses the issue where keys and values are on separate lines, like:</p>
+        <code>
+        ["id"]=><br>
+        int(456)
+        </code>
+        <p><strong>Open Console (F12)</strong> to see the detailed parsing process.</p>
+    </div>
+
+    <div class="test-item">
+        <h3>Test 3: PHP var_dump Output (Original Issue)</h3>
+        array(4) {
+  ["id"]=>
+  int(456)
+  ["name"]=>
+  string(9) "Jane Smith"
+  ["email"]=>
+  string(15) "jane@example.com"
+  ["admin"]=>
+  bool(true)
+}
+    </div>
+
+    <div class="test-item">
+        <h3>Test 4: Java Array Output (Original Issue)</h3>
+        Try programiz.pro
+        [[Ljava.lang.String;@659e0bfd, [Ljava.lang.String;@2a139a55]
+        [[John, Mary], [Alice, Bob]]
+        
+        === Code Execution Successful ===
+    </div>
+
+    <div class="test-item">
+        <h3>Test 5: Python List Output</h3>
+        ['apple', 'banana', 'cherry', 'date']
+        {'name': 'John', 'age': 30, 'city': 'New York'}
+    </div>
+
+    <div class="test-item">
+        <h3>Test 6: JavaScript Array Output</h3>
+        Array(4) [ "red", "green", "blue", "yellow" ]
+        Object { name: "Alice", score: 95, active: true }
+    </div>
+
+    <div class="test-item">
+        <h3>Test 7: Ruby Array Output</h3>
+        ["ruby", "python", "javascript", "php"]
+        {"language"=>"Ruby", "version"=>3.0, "active"=>true}
+    </div>
+
+    <div class="test-item">
+        <h3>Test 8: Single Line var_dump (Browser collapsed)</h3>
+        array(4) { ["id"]=> int(44456) ["name"]=> string(21) "Janeadsfdsadfs Smith" ["email"]=> string(19) "jadddne@example.com" ["admin"]=> bool(true) }
+    </div>
+    <div class="test-item">
+        <h3>Test: Multi-line with NULL and Float</h3>
+        <pre>array(5) {
+  ["user_id"]=>
+  int(789)
+  ["username"]=>
+  string(11) "admin_user"
+  ["balance"]=>
+  float(1299.99)
+  ["notes"]=>
+  NULL
+  ["verified"]=>
+  bool(false)
+}</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test: Mixed Format (Some single-line, some multi-line)</h3>
+        <pre>array(6) {
+  ["id"]=> int(123)
+  ["name"]=>
+  string(8) "John Doe"
+  ["email"]=> string(15) "john@domain.com"
+  ["active"]=>
+  bool(true)
+  ["score"]=>
+  float(95.5)
+  ["metadata"]=> NULL
+}</pre>
+    </div>
+
+    <div class="test-item">
+        <h3>Test: Complex Multi-line Structure</h3>
+        <pre>array(7) {
+  ["company_id"]=>
+  int(999)
+  ["company_name"]=>
+  string(12) "Tech Company"
+  ["founded"]=>
+  int(2010)
+  ["revenue"]=>
+  float(5000000.50)
+  ["public"]=>
+  bool(true)
+  ["description"]=>
+  string(25) "Leading technology firm"
+  ["headquarters"]=>
+  NULL
+}</pre>
+    </div>
+
+    <div class="success-note">
+        <strong>🎯 Expected Results After Multi-Language Fix:</strong>
+        <ol>
+            <li><strong>PHP Detection:</strong> var_dump and print_r output should be detected both in pre/code tags and plain text</li>
+            <li><strong>Java Detection:</strong> Array toString(), memory references, and collection output should be detected</li>
+            <li><strong>Python Detection:</strong> Lists, dicts, tuples should be converted to JSON format</li>
+            <li><strong>JavaScript Detection:</strong> console.log Array() and Object output should be parsed</li>
+            <li><strong>Ruby Detection:</strong> Array and Hash output with => syntax should be converted</li>
+            <li><strong>Interactive UI:</strong> Each detected language output should get JSON viewer with action buttons</li>
+            <li><strong>Language Labels:</strong> Each converted output should show its original language type</li>
+        </ol>
+    </div>
+
+    <div class="console-note">
+        <strong>🔍 Console Output to Look For:</strong>
+        <ul>
+            <li><code>🔑 convertVarDumpToJson: Found key: "id", waiting for value on next line</code></li>
+            <li><code>✅ convertVarDumpToJson: Matched int value for key "id": 456</code></li>
+            <li><code>📝 convertVarDumpToJson: Added int: id = 456</code></li>
+            <li><code>🎯 convertVarDumpToJson: Final result: {id: 456, name: "Jane Smith", ...}</code></li>
+            <li><code>✅ parseVarDump: Successfully converted to JSON</code></li>
+        </ul>
+    </div>
+
+    <script>
+        console.log('🎯 Multi-line var_dump Test Page Loaded');
+        console.log('📊 Total <pre> elements found:', document.querySelectorAll('pre').length);
+        
+        // Analyze each pre element for multi-line patterns
+        document.querySelectorAll('pre').forEach((pre, index) => {
+            const content = pre.textContent.trim();
+            const lines = content.split('\n');
+            
+            console.log(`📝 Pre element ${index + 1} analysis:`, {
+                totalLines: lines.length,
+                hasArrayDeclaration: content.includes('array('),
+                hasArrowOnly: lines.some(line => line.trim().match(/\["[^"]+"\]\s*=>\s*$/)),
+                hasTypePatterns: lines.some(line => line.trim().match(/^(int|string|bool|float|NULL)/)),
+                multiLineStructure: content.includes('["') && content.includes('=>') && lines.length > 3
+            });
+            
+            // Look for specific multi-line patterns
+            for (let i = 0; i < lines.length - 1; i++) {
+                const currentLine = lines[i].trim();
+                const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+                
+                if (currentLine.match(/\["[^"]+"\]\s*=>\s*$/) && nextLine.match(/^(int|string|bool|float|NULL)/)) {
+                    console.log(`🎯 Found multi-line pattern in element ${index + 1}:`, {
+                        keyLine: currentLine,
+                        valueLine: nextLine,
+                        lineNumbers: `${i + 1} -> ${i + 2}`
+                    });
+                }
+            }
+        });
+        
+        // Monitor for successful parsing
+        let checkCount = 0;
+        const parsingInterval = setInterval(() => {
+            checkCount++;
+            
+            const jsonViewers = document.querySelectorAll('.json-element-wrapper');
+            const formattedElements = document.querySelectorAll('.json-formatted-view');
+            
+            console.log(`🔍 Multi-Language Detection Check ${checkCount}:`, {
+                jsonViewers: jsonViewers.length,
+                formattedElements: formattedElements.length,
+                timestamp: new Date().toLocaleTimeString()
+            });
+            
+            if (jsonViewers.length > 0 || checkCount >= 20) {
+                clearInterval(parsingInterval);
+                
+                if (jsonViewers.length > 0) {
+                    console.log('🎉 SUCCESS: Multi-language array/collection detection working!');
+                    console.log(`📊 Successfully detected and parsed ${jsonViewers.length} language outputs`);
+                    
+                    // Verify different language types were detected
+                    jsonViewers.forEach((viewer, index) => {
+                        const content = viewer.textContent;
+                        console.log(`📝 Viewer ${index + 1} analysis:`, {
+                            // PHP detection
+                            isPHP: content.includes('"_type":"var_dump') || content.includes('var_dump') || content.includes('print_r'),
+                            hasPhpData: content.includes('"id"') && content.includes('"name"'),
+                            
+                            // Java detection
+                            isJava: content.includes('"_type":"java_output') || content.includes('array_references'),
+                            hasJavaArrays: content.includes('array_content') || content.includes('Ljava.lang.String'),
+                            
+                            // Python detection
+                            isPython: content.includes('"_type":"python_output'),
+                            hasPythonData: content.includes('apple') || content.includes('banana'),
+                            
+                            // JavaScript detection
+                            isJavaScript: content.includes('"_type":"javascript_output'),
+                            hasJSData: content.includes('red') || content.includes('green'),
+                            
+                            // Ruby detection
+                            isRuby: content.includes('"_type":"ruby_output'),
+                            hasRubyData: content.includes('ruby') || content.includes('language'),
+                            
+                            // Generic detection
+                            isGeneric: content.includes('"_type":"generic'),
+                            
+                            // Common data validation
+                            hasProperNumbers: /:\s*\d+/.test(content),
+                            hasProperStrings: /:\s*"[^"]*"/.test(content),
+                            hasBooleans: content.includes('true') || content.includes('false'),
+                            hasOriginalData: content.includes('"_original"')
+                        });
+                    });
+                    
+                    // Count detections by language
+                    const languageCounts = {
+                        php: 0,
+                        java: 0,
+                        python: 0,
+                        javascript: 0,
+                        ruby: 0,
+                        generic: 0
+                    };
+                    
+                    jsonViewers.forEach(viewer => {
+                        const content = viewer.textContent;
+                        if (content.includes('php_output') || content.includes('var_dump')) languageCounts.php++;
+                        if (content.includes('java_output')) languageCounts.java++;
+                        if (content.includes('python_output')) languageCounts.python++;
+                        if (content.includes('javascript_output')) languageCounts.javascript++;
+                        if (content.includes('ruby_output')) languageCounts.ruby++;
+                        if (content.includes('generic')) languageCounts.generic++;
+                    });
+                    
+                    console.log('📊 Language Detection Summary:', languageCounts);
+                    
+                } else {
+                    console.log('❌ Multi-language detection failed');
+                    console.log('🔧 Check console for detailed detection logs');
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
